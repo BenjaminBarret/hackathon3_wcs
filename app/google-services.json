@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "363874944388",
+    "firebase_url": "https://winnewshackathon3.firebaseio.com",
+    "project_id": "winnewshackathon3",
+    "storage_bucket": "winnewshackathon3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:363874944388:android:75c8a7638efb1850",
+        "android_client_info": {
+          "package_name": "fr.wcs.winnewshackathon3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "363874944388-84rpme0rc2scse0l23cul1hq9catlnje.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "fr.wcs.winnewshackathon3",
+            "certificate_hash": "03352202c02de220b99172b9942c8d0ad673ec40"
+          }
+        },
+        {
+          "client_id": "363874944388-45r6hllk2qbfjp4obndnqrq7fagdfodo.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "363874944388-45r6hllk2qbfjp4obndnqrq7fagdfodo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2JpoUIbjQNFogcSMmeXnlv8a9Cnrm_9o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "363874944388-45r6hllk2qbfjp4obndnqrq7fagdfodo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
