@@ -8,6 +8,7 @@ public class ContributorModel {
 
     public ContributorModel(){}
 
+
     public ContributorModel(String firstname, String lastname, String employer) {
         this.firstname = firstname;
         this.lastname = lastname;

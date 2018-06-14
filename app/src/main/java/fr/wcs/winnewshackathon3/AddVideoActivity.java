@@ -44,7 +44,7 @@ public class AddVideoActivity extends AppCompatActivity {
     DatabaseReference myRef;
     StorageReference mStorageRef;
     FirebaseAuth mAuth;
-    FirebaseUser mfirebaseUser;
+    FirebaseUser mCurrentUser;
     private String mUserID;
 
     Uri videoUri;
@@ -65,8 +65,12 @@ public class AddVideoActivity extends AppCompatActivity {
 
         mVideoView = findViewById(R.id.videoView_preview);
 
-        mfirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        mUserID = mfirebaseUser.getUid();
+        mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
+        mUserID = mCurrentUser.getUid();
+
+        Singleton singleton = Singleton.getsIntance();
+        final ContributorModel contributor = singleton.getUser();
+
 
         database = FirebaseDatabase.getInstance();
         mStorageRef = FirebaseStorage.getInstance().getReference();
@@ -98,7 +102,18 @@ public class AddVideoActivity extends AppCompatActivity {
                             Uri downloadUrl = taskSnapshot.getDownloadUrl();
                             String url = downloadUrl.toString();
                                 // TODO : ENVOI MODELE VIDEO
-                            //myRef.setValue(url);
+
+                            ArticleModel article = new ArticleModel(url,
+                                    mTagArticle.getSelectedItem().toString(),
+                                    mEditUrlArticle.getText().toString(),
+                                    mEditTitreArticle.getText().toString(),
+                                    contributor.getFirstname(),
+                                    contributor.getLastname(),
+                                    contributor.getEmployer());
+
+
+                            myRef.push().setValue(article);
+
                             Toast.makeText(AddVideoActivity.this, "Ok", Toast.LENGTH_SHORT).show();
                         }
                     }).addOnFailureListener(new OnFailureListener() {

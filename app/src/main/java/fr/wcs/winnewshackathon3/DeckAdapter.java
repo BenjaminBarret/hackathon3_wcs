@@ -2,6 +2,7 @@ package fr.wcs.winnewshackathon3;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.util.Pair;
@@ -14,14 +15,15 @@ import android.widget.TextView;
 import android.widget.VideoView;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class DeckAdapter extends ArrayAdapter<Pair<String, String>> {
+public class DeckAdapter extends ArrayAdapter<ArticleModel> {
 
 
     private final int mResource;
 
-    DeckAdapter(@NonNull Context context, @NonNull List<Pair<String, String>> objects) {
+    DeckAdapter(@NonNull Context context, @NonNull ArrayList<ArticleModel> objects) {
         super(context, R.layout.item, objects);
         mResource = R.layout.item;
     }
@@ -38,12 +40,16 @@ public class DeckAdapter extends ArrayAdapter<Pair<String, String>> {
         } else
             layout = (RelativeLayout) convertView;
 
-        Pair item = getItem(position);
+        ArticleModel item = getItem(position);
         if (item != null) {
 
 
             VideoView videoView = (VideoView) layout.findViewById(R.id.item_video);
-            videoView.setVideoPath(String.valueOf(item.second));
+            Uri urisingle = Uri.parse(item.getUrlVideo());
+            if(urisingle!=null){
+                videoView.setVideoPath(item.getUrlVideo());
+            }
+            videoView.start();
         }
         return layout;
     }

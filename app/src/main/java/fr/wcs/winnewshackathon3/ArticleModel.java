@@ -8,7 +8,7 @@ public class ArticleModel {
     private String titreArticle;
     private String firstname;
     private String lastname;
-    private String Employer;
+    private String employer;
 
     public ArticleModel(){}
 
@@ -19,7 +19,7 @@ public class ArticleModel {
         this.titreArticle = titreArticle;
         this.firstname = firstname;
         this.lastname = lastname;
-        Employer = employer;
+        this.employer = employer;
     }
 
     public String getUrlVideo() {
@@ -71,10 +71,10 @@ public class ArticleModel {
     }
 
     public String getEmployer() {
-        return Employer;
+        return employer;
     }
 
     public void setEmployer(String employer) {
-        Employer = employer;
+        employer = employer;
     }
 }
