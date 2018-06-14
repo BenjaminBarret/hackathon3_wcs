@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -12,23 +13,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".ChooseActivity"
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ChooseActivity"
             android:screenOrientation="portrait">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+        </activity>
+        <activity
+            android:name=".NewsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AddVideoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".LocationActivity">
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
-        <activity android:name=".NewsActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".AddVideoActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ProfileActivity"
-            android:screenOrientation="portrait"></activity>
+        </activity>
+        <activity android:name=".Filters">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+
+        </activity>
     </application>
 
 </manifest>
