@@ -22,7 +22,7 @@ public class ChooseActivity extends AppCompatActivity {
         mReporter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent goToAddVideo = new Intent(ChooseActivity.this,AddVideoActivity.class);
+                Intent goToAddVideo = new Intent(ChooseActivity.this,MainActivity.class);
                 startActivity(goToAddVideo);
             }
         });

@@ -1,6 +1,9 @@
 package fr.wcs.winnewshackathon3;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -69,6 +72,11 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         // [END initialize_auth]
 
+        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        String phonesave = sharedPref.getString("phonenumber", null);
+        if(phonesave != null){
+            startActivity(new Intent(this,AddVideoActivity.class));
+        }
 
         mPhoneNumberField = findViewById(R.id.field_phone_number);
         mVerificationField = findViewById(R.id.field_verification_code);
@@ -120,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
                 // This callback is invoked in an invalid request for verification is made,
                 // for instance if the the phone number format is not valid.
                 Toast.makeText(MainActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
@@ -148,6 +157,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startPhoneNumberVerification(String phoneNumber) {
+
+        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("phonenumber", phoneNumber);
+        editor.commit();
         // [START start_phone_auth]
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
                 phoneNumber,        // Phone number to verify
@@ -174,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
     }
     // [END resend_verification]
 
-    private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
+    private void signInWithPhoneAuthCredential(final PhoneAuthCredential credential) {
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -184,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
                             Log.d(TAG, "signInWithCredential:success");
 
                             FirebaseUser user = task.getResult().getUser();
-                            Intent goToChooseActivity = new Intent(MainActivity.this, ChooseActivity.class);
+                            Intent goToChooseActivity = new Intent(MainActivity.this, ProfileActivity.class);
                             startActivity(goToChooseActivity);
                         } else {
                             // Sign in failed, display a message and update the UI
