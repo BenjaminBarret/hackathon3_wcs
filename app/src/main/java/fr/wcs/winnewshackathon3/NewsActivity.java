@@ -80,8 +80,6 @@ public class NewsActivity extends AppCompatActivity implements FlingChiefListene
         mDownView = findViewById(R.id.down);
 
         mDatabase = FirebaseDatabase.getInstance();
-        mUser = FirebaseAuth.getInstance().getCurrentUser();
-        mUserID = mUser.getUid();
         myRef = mDatabase.getReference();
 
 
