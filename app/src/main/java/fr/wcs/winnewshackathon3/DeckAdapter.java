@@ -35,19 +35,20 @@ public class DeckAdapter extends ArrayAdapter<ArticleModel> {
 
         final RelativeLayout layout;
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item, parent, false);
-        }
-
+            LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            layout = (RelativeLayout) inflater.inflate(mResource, parent, false);
+        } else
+            layout = (RelativeLayout) convertView;
 
         ArticleModel item = getItem(position);
         if (item != null && item.getUrlVideo()!=null) {
 
 
-            VideoView videoView = (VideoView) convertView.findViewById(R.id.item_video);
+            VideoView videoView = (VideoView) layout.findViewById(R.id.item_video);
             videoView.setVideoPath(item.getUrlVideo());
             videoView.start();
         }
-        return convertView;
+        return layout;
     }
 
 }

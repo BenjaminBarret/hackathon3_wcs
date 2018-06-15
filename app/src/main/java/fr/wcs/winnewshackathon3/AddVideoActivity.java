@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -29,7 +30,7 @@ public class AddVideoActivity extends AppCompatActivity {
     private EditText mEditTitreArticle;
     private EditText mEditUrlArticle;
 
-    private Button mCaptureVid;
+    private ImageView mCaptureVid;
     private Button mPosterArticle;
 
     private Spinner mTagArticle;
@@ -142,6 +143,8 @@ public class AddVideoActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
         if (requestCode == REQUEST_VIDEO_CAPTURE && resultCode == RESULT_OK) {
             videoUri = intent.getData();
+            mCaptureVid.setVisibility(View.GONE);
+            mVideoView.setVisibility(View.VISIBLE);
             mVideoView.setVideoURI(videoUri);
             mVideoView.setMediaController(new MediaController(this));
             mVideoView.requestFocus();

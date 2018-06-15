@@ -10,4 +10,6 @@
     <color name="cardPurpleColor">#b388ff</color>
     <color name="cardBrownColor">#bcaaa4</color>
     <color name="cardTealColor">#80cbc4</color>
+    <color name="blueWin">#1E3278</color>
+    <color name="yellowWin">#ffdc00</color>
 </resources>

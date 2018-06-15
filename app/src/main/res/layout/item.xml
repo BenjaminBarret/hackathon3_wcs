@@ -3,7 +3,6 @@
     android:id="@+id/layout_main"
     android:layout_width="350dp"
     android:layout_height="350dp"
-    android:background="@android:color/black"
     android:gravity="center">
 
     <VideoView

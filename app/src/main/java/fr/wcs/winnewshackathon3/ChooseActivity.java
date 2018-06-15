@@ -16,9 +16,7 @@ public class ChooseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose);
 
-        Singleton singleton = Singleton.getsIntance();
-        singleton.loadUser();
-        //singleton.loadArrayList();
+
 
         mReporter = findViewById(R.id.imageView_reporter);
         mInfos = findViewById(R.id.imageView_news);
